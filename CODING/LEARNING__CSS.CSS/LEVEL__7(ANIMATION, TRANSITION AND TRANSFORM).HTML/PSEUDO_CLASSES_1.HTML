@@ -1,0 +1,50 @@
+<!--
+A.PSEUDO CLASSES
+   • Used to define special states of HTML elements.
+   • Syntax: selector:pseudo-class { styles }.
+   • Common examples: :hover, :active, :first-child.
+   • Target elements based on their position or user action.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEARNING PSEUDO</title>
+  <style>
+    .PSEUDO {
+      height: 60px;
+      width: 200px;
+      background-color: greenyellow;
+      margin: 300px;
+      margin-left: 620px;
+      border: 5px dashed black;
+      border-radius: 10px;
+      font-size: 30px;
+    }
+
+    .PSEUDO:hover {
+      height: 70px;
+      width: 250px;
+      background-color: blue;
+      color: white;
+      border: 5px dashed white;
+      border-radius: 0%;
+    }
+
+    .PSEUDO:active {
+      height: 70px;
+      width: 250px;
+      border-radius: 0%;
+      color: black;
+      background-color: chartreuse;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="PSEUDO"><b>THAR</b></button>
+</body>
+
+</html>

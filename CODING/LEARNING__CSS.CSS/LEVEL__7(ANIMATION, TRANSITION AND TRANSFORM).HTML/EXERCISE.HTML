@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXERCISE</title>
+  <STYLE>
+    .PROGRESS_CONTAINER {
+      height: 30px;
+      width: 90%;
+      background-color: gainsboro;
+      border: 3px solid black;
+      border-radius: 20px;
+      position: relative;
+      left: 4%;
+      margin-top: 100px;
+    }
+
+    .PROGRESS_BAR {
+      background-color: yellow;
+      height: 100%;
+      border-radius: 20px;
+
+      animation: ANIMATE_PROGRESS 3s;
+    }
+
+    @keyframes ANIMATE_PROGRESS {
+      0% {
+        width: 0%;
+      }
+
+      90% {
+        width: 95%;
+      }
+
+      95% {
+        width: 70%;
+      }
+
+      100% {
+        width: 100%;
+      }
+    }
+  </STYLE>
+</head>
+
+<body>
+  <div class="PROGRESS_CONTAINER">
+    <div class="PROGRESS_BAR"></div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      *{background-color: chartreuse;}
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 5px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <hr style="background-color: black; border-color: black; height: 0.07cm" />
+    <h1 style="text-align: center">BASIC CONTACT FORM</h1>
+    <hr style="background-color: black; border-color: black; height: 0.07cm" />
+    <br /><br />
+    <form action="/LAB MANUAL FUID/Q2.HTML" style="text-align: center">
+      <label for="name"><b>FULL NAME:</b></label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="YOUR FULL NAME"
+        required="true"
+      />
+      <br />
+      <br /><br />
+      <label for="email"><b>EMAIL:</b></label>
+      <input
+        type="text"
+        id="email"
+        name="email address"
+        placeholder="EMAIL ADDRESS"
+        required="true"
+      />
+      <br />
+      <br /><br />
+      <label for="subject"><b>SUBJECT:</b></label>
+      <select name="subject" id="subject" required="true">
+        <option value="">SELECT A SUBJECT</option>
+        <option value="general">GENERAL ENQUIRY</option>
+        <option value="support">TECHNICAL SUPPORT</option>
+        <option value="feedback">FEEDBACK</option>
+        <option value="other">OTHER</option>
+      </select>
+      <br />
+      <br /><br />
+      <label for="MESSAGE"><b>MESSAGE:</b></label>
+      <textarea
+        name="message"
+        id="MESSAGE"
+        rows="5"
+        required="true"
+        placeholder="YOU CAN ENTER A MESSAGE"
+      ></textarea>
+      <br />
+      <br />
+      <input
+        type="submit"
+        style="background-color: black; color: white; height: 30px; width: 80px"
+      />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 7</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      header {
+        text-align: center;
+        background-color: #3a04fd;
+        color: white;
+        padding: 1rem;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p {
+        font-size: 1.2rem;
+      }
+
+      section {
+        padding: 2rem 1rem;
+        margin: 2rem 0;
+      }
+
+      h2 {
+        color: #333;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      button {
+        background-color: #4e05f7;
+        color: white;
+        padding: 0.8rem 1.2rem;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #3a05fc;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .diagram-container {
+        position: relative;
+        text-align: center;
+      }
+
+      .diagram {
+        width: 100%;
+        max-width: 600px;
+        margin: 2rem 0;
+      }
+
+      .tooltip {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 0.5rem;
+        border-radius: 5px;
+        display: none;
+        max-width: 200px;
+      }
+
+      #client-tooltip {
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+      }
+
+      #server-tooltip {
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+
+        header h1 {
+          font-size: 2rem;
+        }
+
+        section {
+          padding: 1.5rem;
+        }
+
+        button {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>How the Internet Works</h1>
+      <p>
+        An interactive guide explaining the basics of how the internet
+        functions.
+      </p>
+    </header>
+
+    <section class="intro">
+      <h2>What is the Internet?</h2>
+      <p>
+        The internet is a global network of computers that communicate with each
+        other to share information, services, and resources.
+      </p>
+      <button onclick="toggleVisibility('intro-details')">Learn More</button>
+      <div id="intro-details" class="hidden">
+        <p>
+          It connects billions of devices worldwide using a system of protocols,
+          hardware, and infrastructure like cables, routers, and data centers.
+        </p>
+      </div>
+    </section>
+
+    <section class="network">
+      <h2>How Does the Internet Work?</h2>
+      <p>
+        At a high level, the internet functions through a client-server model.
+        Let's break this down:
+      </p>
+
+      <div class="diagram-container">
+        <div class="tooltip" id="client-tooltip">
+          The client is the device (like a computer or smartphone) that sends a
+          request to a server.
+        </div>
+        <div class="tooltip" id="server-tooltip">
+          The server is a remote machine that processes the client's request and
+          sends back data.
+        </div>
+      </div>
+
+      <button onclick="toggleVisibility('network-details')">Learn More</button>
+      <div id="network-details" class="hidden">
+        <p>
+          When you visit a website, your device (client) sends a request to a
+          server using a protocol like HTTP. The server then sends the requested
+          data back to your device, allowing you to view the website.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

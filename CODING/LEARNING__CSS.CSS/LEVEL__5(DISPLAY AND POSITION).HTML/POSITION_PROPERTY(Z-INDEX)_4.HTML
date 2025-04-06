@@ -1,0 +1,53 @@
+<!--
+~~Z-INDEX
+   • Stacking Order: Determines the stacking order of elements along the Z-axis.
+   • Position Context: Only applies to elements with position set to relative, absolute, fixed, or sticky.
+   • Integer Values: Accepts integer values, including negative numbers.
+   • Higher Values: An element with a higher z-index value appears above others.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Z-INDEX</title>
+  <STYLE>
+    .container {
+      position: relative;
+    }
+
+    .THAR,
+    .RUBICON {
+      position: absolute;
+      border: 3PX solid black;
+      height: 100px;
+      width: 100px;
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .THAR {
+      background-color: red;
+      left: 20PX;
+      top: 100px;
+      z-index: 2;
+    }
+
+    .RUBICON {
+      background-color: aqua;
+      left: 60PX;
+      top: 20px;
+      z-index: 1;
+    }
+  </STYLE>
+</head>
+
+<body>
+  <div class="container">
+    <div class="THAR">Z-INDEX 2</div>
+    <div class="RUBICON">Z-INDEX 1</div>
+  </div>
+</body>
+
+</html>

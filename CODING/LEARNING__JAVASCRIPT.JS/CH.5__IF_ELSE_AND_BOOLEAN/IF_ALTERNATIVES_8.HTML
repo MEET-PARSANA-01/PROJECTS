@@ -1,0 +1,40 @@
+<!--
+~~IF ALTERNATIVES
+  1. Ternary Operator: condition ? trueValue : falseValue Quick one-line if-else.
+  2. Guard Operator: value || defaultValue Use when a fallback value is needed.
+  3. Default Operator: value ?? fallbackValue Use when you want to consider only null and undefined as falsy.
+  4. Simplifies conditional logic.
+  5. Use wisely to maintain readability.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IF ALTERNATIVES</title>
+</head>
+
+<body>
+  <script>
+    //TERNARY OPERATOR
+    let age = 31;
+    let result = age > 18 ? 'ADULT' : 'KID';
+    console.log(result);
+
+    //GUARD OPERATOR
+    let AGE = 32;
+    let FinalAge = AGE || 18;//YEH SIRF LEFT ME FALSY VALUE HAI YA NAHI YEH
+    console.log(AGE);
+    console.log(FinalAge);
+
+    //DEFAULT OPERATOR
+    let AGe = 0;
+    let finalAge = AGe ?? 18;
+    console.log(AGe);
+    console.log(finalAge);
+
+  </script>
+</body>
+
+</html>

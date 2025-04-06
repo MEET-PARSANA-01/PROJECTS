@@ -1,0 +1,26 @@
+#include <stdio.h>
+long long factorial(int);
+
+int main()
+{
+  /*LONG IS A DATA TYPE,LARGER THAN INT,OFTEN 64-BITS ON 64-BIT SYSTEMS AND 32-BITS ON 32-BIT SYSTEMS.
+    RANGE: CAN HOLD LARGER INTEGER VALUES,USEFUL FOR EXTENDED ARITHMETIC PRECISION.
+    SUFFIX: DENOTED BY L OR l SUFFIX FOR LONG LITERALS, E.G.,100L
+    TYPES: HAS A LONG LONG VARIANT FOR EVEN LARGER INTEGERS,AT LEAST 64 BITS.
+    STANDARD: SIZE GUARANTEED BY THE C STANDARD TO BE AT LEAST 32 BITS.
+    TO PRINT: %ld.
+    USAGE: JAB BHI BOHOT BADA INT USE KARNA HO TAB HE LONG AUR LONG LONG USE KARNA HAI.*/
+
+  printf("\nFACTORIAL OF 13: %lld", factorial(13));
+
+  return 0;
+}
+long long factorial(int num)
+{
+  long long result = 1;
+  for (int i = 2; i <= num; i++)
+  {
+    result *= i;
+  }
+  return result;
+}

@@ -1,0 +1,196 @@
+<!-- Build a responsive image gallery with filtering and sorting options using Bootstrap and JavaScript. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Responsive Image Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .gallery-item {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container my-4">
+    <h2 class="text-center">Image Gallery</h2>
+
+    <div class="d-flex justify-content-between mb-3">
+      <div>
+        <button class="btn btn-primary filter-btn" data-filter="all">All</button>
+        <button class="btn btn-secondary filter-btn" data-filter="nature">Nature</button>
+        <button class="btn btn-secondary filter-btn" data-filter="city">City</button>
+        <button class="btn btn-secondary filter-btn" data-filter="animals">Animals</button>
+        <button class="btn btn-secondary filter-btn" data-filter="architecture">Architecture</button>
+        <button class="btn btn-secondary filter-btn" data-filter="cars">Cars</button>
+      </div>
+      <select id="sortOptions" class="form-select w-auto">
+        <option value="name">Sort by Name</option>
+        <option value="category">Sort by Category</option>
+      </select>
+    </div>
+
+    <div class="row" id="gallery">
+      <div class="col-md-4 gallery-item" data-category="nature" data-name="Forest">
+        <img src="https://i.pinimg.com/474x/7a/76/1d/7a761d0c69df3858fceff11ef8708f48.jpg" class="img-fluid">
+        <br><br>
+      </div>
+      <div class="col-md-4 gallery-item" data-category="nature" data-name="Beach">
+        <img src="https://i.pinimg.com/474x/c1/e9/32/c1e932c86aa09e38e89773bf66f2501b.jpg" class="img-fluid">
+        <br><br>
+      </div>
+      <!-- <div class="col-md-4 gallery-item" data-category="nature" data-name="Mountain">
+        <img src="https://i.pinimg.com/474x/75/03/05/7503054a9c018f947eed7d9da840ca17.jpg" class="img-fluid">
+        <br><br>
+      </div> -->
+      <div class="col-md-4 gallery-item" data-category="city" data-name="Skyscraper">
+        <img src="https://i.pinimg.com/474x/d3/7f/9f/d37f9f2850004431e6a2a6df2383614f.jpg" class="img-fluid">
+        <br><br>
+      </div>
+      <div class="col-md-4 gallery-item" data-category="city" data-name="Street">
+        <img src="https://i.pinimg.com/474x/92/54/01/925401e1ae3e3c982a71b80b1fe7b11a.jpg" class="img-fluid">
+        <br><br>
+      </div>
+      <!-- <div class="col-md-4 gallery-item" data-category="city" data-name="Bridge City">
+        <img src="https://i.pinimg.com/474x/f8/1f/f9/f81ff9a4f3f7de779346897507a13271.jpg" class="img-fluid">
+        <br><br>
+      </div> -->
+      <div class="col-md-4 gallery-item" data-category="animals" data-name="Tiger">
+        <img src="https://i.pinimg.com/474x/6f/12/a4/6f12a4a197223cbde494f0977db53e1b.jpg" class="img-fluid">
+        <br><br>
+      </div>
+      <div class="col-md-4 gallery-item" data-category="animals" data-name="Eagle">
+        <img src="https://i.pinimg.com/474x/49/03/56/4903569c5b1c2106dfa8c8e2858cd7dd.jpg" class="img-fluid">
+        <br><br>
+      </div>
+      <!-- <div class="col-md-4 gallery-item" data-category="animals" data-name="Lion">
+        <img src="https://i.pinimg.com/474x/03/fa/61/03fa6159950a9a8844739e4e2471a26d.jpg" class="img-fluid">
+        <br><br>
+      </div> -->
+      <div class="col-md-4 gallery-item" data-category="architecture" data-name="Bridge">
+        <img src="https://i.pinimg.com/474x/f7/e8/d7/f7e8d798bb3adb0aa8215e2e0a701f1f.jpg" class="img-fluid">
+        <br><br>
+      </div>
+      <div class="col-md-4 gallery-item" data-category="architecture" data-name="Castle">
+        <img src="https://i.pinimg.com/474x/cf/5a/85/cf5a85d907170ddf6c88e0efdb6846ab.jpg" class="img-fluid">
+        <br><br>
+      </div>
+      <!-- <div class="col-md-4 gallery-item" data-category="architecture" data-name="Modern Building">
+        <img src="https://i.pinimg.com/474x/d8/6c/c5/d86cc5707ac67ff3919b6165747a9eb1.jpg" class="img-fluid">
+        <br><br>
+      </div> -->
+      <div class="col-md-4 gallery-item" data-category="cars" data-name="Sports Car">
+        <img src="https://i.pinimg.com/474x/5f/86/e2/5f86e2558ad6cde7cfa49007f1ac85e9.jpg" class="img-fluid">
+        <br><br>
+      </div>
+      <div class="col-md-4 gallery-item" data-category="cars" data-name="Classic Car">
+        <img src="https://i.pinimg.com/474x/82/83/2a/82832a1a062fd9657855710ab4ed6a3d.jpg" class="img-fluid">
+        <br><br>
+      </div>
+      <!-- <div class="col-md-4 gallery-item" data-category="cars" data-name="Luxury Car">
+        <img src="https://i.pinimg.com/474x/93/10/e5/9310e5f9412dbec065b87d59e49c8e6e.jpg" class="img-fluid">
+        <br><br>
+      </div> -->
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        let filter = this.getAttribute('data-filter');
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    document.getElementById('sortOptions').addEventListener('change', function () {
+      let gallery = document.getElementById('gallery');
+      let items = Array.from(gallery.children);
+      let sortBy = this.value;
+      items.sort((a, b) => a.getAttribute(`data-${sortBy}`).localeCompare(b.getAttribute(`data-${sortBy}`)));
+      items.forEach(item => gallery.appendChild(item));
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dodge Challenger Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .gallery-item {
+      display: none;
+    }
+
+    .gallery-item.show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container py-4">
+    <h2 class="text-center mb-4">Image Gallery</h2>
+    <div class="text-center mb-3">
+      <button class="btn btn-primary" onclick="filterImages('all')">All</button>
+      <button class="btn btn-secondary" onclick="filterImages('classic')">Classic</button>
+      <button class="btn btn-secondary" onclick="filterImages('modern')">Modern</button>
+    </div>
+
+    <div class="row" id="gallery">
+      <div class="col-md-4 gallery-item classic show">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwhadHsSlz2jSobNqs93OmIelGBlYinvAERg&s" class="img-fluid rounded"
+          alt="Classic Dodge Challenger">
+      </div>
+      <div class="col-md-4 gallery-item modern show">
+        <img src="https://i.pinimg.com/474x/97/2e/e5/972ee59b43a942427a79063018c4b0ba.jpg" class="img-fluid rounded"
+          alt="Modern Dodge Challenger">
+      </div>
+      <div class="col-md-4 gallery-item classic show">
+        <img src="https://i.pinimg.com/474x/bb/2c/b9/bb2cb9bd735d299ecbc8b03b7ef5ba76.jpg" class="img-fluid rounded"
+          alt="Vintage Dodge Challenger">
+      </div>
+      <div class="col-md-4 gallery-item modern show">
+        <img src="https://i.pinimg.com/474x/5e/b9/12/5eb91235ffbdb3b80f2d2593351adbdf.jpg" class="img-fluid rounded"
+          alt="New Dodge Challenger">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function filterImages(category) {
+      let items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        item.classList.remove('show');
+        if (category === 'all' || item.classList.contains(category)) {
+          item.classList.add('show');
+        }
+      });
+    }
+  </script>
+</body>
+
+</html> -->

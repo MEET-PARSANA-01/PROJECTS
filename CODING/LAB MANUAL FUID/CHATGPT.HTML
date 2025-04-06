@@ -1,0 +1,76 @@
+<!--MEDIA QUERIES-->
+<!--1.TAILOR STYLES FOR SPECIFIC DEVICE CHARACTERISTICS.
+    2.USE TO CREATE RESPONSIVE WEB DESIGNS.
+    3.APPLY STYLES BASED ON CONDITIONS LIKE SCREEN SIZE.
+    4.SYNTAX: @MEDIA(condition){CSS RULES}.
+    5.CAN COMBINE MULTIPLE CONDITIONS USING AND,OR.-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDIA QUERIES</title>
+    <STYLE>
+        #H1 {
+            text-align: center;
+            text-decoration: underline;
+            font-size: 50PX;
+            font-family: cursive;
+            margin: 40PX;
+            margin-bottom: 70PX;
+        }
+
+        #THAR {
+            height: 100PX;
+            width: 100PX;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            margin-left: 30px;
+            margin-bottom: 40PX;
+            padding: 30px;
+            padding-top: 38px;
+            box-sizing: border-box;
+        }
+
+        @media screen and(width:600px) {
+            #THAR {
+                border: 3px dashed black;
+            }
+        }
+
+        #RR {
+            height: 100PX;
+            width: 100PX;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            margin-left: 30px;
+            margin-bottom: 40PX;
+            padding: 30px;
+            padding-top: 38px;
+            box-sizing: border-box;
+        }
+
+
+
+        @media screen and(min-width:1000px) {
+            #RR {
+                height: 200px;
+                width: 200px;
+            }
+        }
+    </STYLE>
+</head>
+
+<body>
+    <H1 id="H1">MEDIA QUERIES</H1>
+    <h2>1.MEDIA QUERIES(WIDTH)</h2>
+    <DIV id="THAR">THAR</DIV>
+    <h2>2.MEDIA QUERIES(MIN-WIDTH)</h2>
+    <DIV id="RR">ROLLS</DIV>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!--
+D.CSS ANIMATIONS
+   • animation-name: Specifies the name of the @keyframes defined animation.
+   • animation-duration: Defines the total time the animation takes to complete one cycle.
+   • animation-timing-function: Controls the pacing of the animation (e.g., linear, ease-in).
+   • animation-delay: Sets a delay before the animation starts, allowing for a pause before initiation.
+   • animation-iteration-count: Indicates the number of times the animation should repeat.
+   • animation-direction: Specifies the direction of the animation, allowing for reverse or alternate cycles.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEARNING CSS ANIMATION</title>
+  <STYLE>
+    .SKEW {
+      height: 200px;
+      width: 200px;
+      color: white;
+      background-color: darkblue;
+      border: 5px dashed white;
+      font-size: 30PX;
+      box-sizing: border-box;
+      padding: 22px;
+      padding-left: 23px;
+      padding-top: 75px;
+      margin: 200px;
+      margin-left: 600px;
+      border-radius: 10px;
+      position: relative;
+      top: 10px;
+      left: 10px;
+      animation-name: BADMOSH;
+      animation-duration:1s;
+      animation-timing-function: ease-in-out;
+      animation-delay: 1s;
+
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      /*SHORTHAND animation: badmosh 4s ease-in-out 0s 4*/
+    }
+
+    #H1 {
+      text-align: center;
+      font-size: 70PX;
+    }
+
+    @keyframes BADMOSH {
+      /* from {          
+        top: 1px
+      }
+
+      to {
+        top: 100px
+      } */
+       0%{top: 10px}
+       50%{top:60px}
+       70%{top: 120px}
+       100%{top:200px}
+       /*WE CAN ALSO DEFINE FROM AND TO IN PERCENTAGES,LIKE 0% TO 40% PROPERTIES SHOULD BE THIS AND FROM 40% TO 60% PROPERTIES SHOULD BE THAT,ETC. */
+    }
+  </STYLE>
+</head>
+
+<body>
+  <H1 id="H1">CSS ANIMATIONS</H1>
+  <div class="SKEW"><b>MUSTANG</b></div>
+
+
+</body>
+
+</html>

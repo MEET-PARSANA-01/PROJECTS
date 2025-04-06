@@ -1,0 +1,29 @@
+<!--
+Q1.CREATE A METHOD TO CHECK IF A NUMBER IS ODD OR EVEN.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>q1.</title>
+</head>
+
+<body>
+  <script>
+    let n;
+    function isOdd(number) {
+      let remainder = number % 2;
+      let isOdd = remainder == 1;
+      return isOdd;
+    }
+    console.log(isOdd(2));
+    console.log(isOdd(3));
+    console.log(isOdd(4));
+    console.log(isOdd(7));
+    console.log(isOdd(10));
+  </script>
+</body>
+
+</html>

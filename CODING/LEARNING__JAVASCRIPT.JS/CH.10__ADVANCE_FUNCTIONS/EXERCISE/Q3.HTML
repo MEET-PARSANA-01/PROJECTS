@@ -1,0 +1,38 @@
+<!--Create a button which should grow double in size on clicking after 2 seconds.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Q3</title>
+  <style>
+    .BTN-SUB {
+      font-size: 15PX;
+      height: 20PX;
+      width: 100PX;
+      background-color: rgb(221, 24, 24);
+      color: white;
+      border: none;
+      border-radius: 4PX;
+      cursor: pointer;
+    }
+
+    .js-size-double {
+      font-size: 30PX;
+      height: 40PX;
+      width: 200PX;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="BTN-SUB" onclick="setTimeout(doubleTheSize,1000);">SUBSCRIBE</button>
+
+  <script>
+    function doubleTheSize() {
+      let buttonElement = document.querySelector('.BTN-SUB');
+      buttonElement.classList.add('.js-size-double');
+    }
+  </script>
+</body>
+
+</html>

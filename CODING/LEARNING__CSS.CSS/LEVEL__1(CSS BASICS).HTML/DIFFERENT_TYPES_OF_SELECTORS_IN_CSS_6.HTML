@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TYPES OF SELECTORS</title>
+  <STYLE>
+    * {
+      font-size: 50px;
+      /*UNIVERSAL SELECTOR*/
+    }
+
+    P {
+      color: darkblue;
+      /*ELEMENT SELECTOR*/
+    }
+
+    #ROLLS_ROYCE {
+      color: darkblue;
+      /*ID SELECTOR*/
+    }
+
+    .MUSTANG {
+      color: darkblue;
+      /*CLASS SELECTOR*/
+    }
+
+    P,
+    div {
+      color: darkblue;
+      /*GROUP SELECTOR*/
+    }
+
+    div p {
+      color: darkblue;
+      /*DESCENDENT*/
+    }
+  </STYLE>
+</head>
+
+<body>
+  <P>THAR</P>
+  <P id="ROLLS_ROYCE">ROLLS ROYCE</P>
+  <P class="MUSTANG">MUSTANG</P>
+  <div>BMW</div>
+  <div>
+    <P>G_WAGON</P>
+  </div>
+</body>
+
+</html>

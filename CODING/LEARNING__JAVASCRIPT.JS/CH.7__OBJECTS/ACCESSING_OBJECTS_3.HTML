@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBJECTS</title>
+</head>
+
+<body>
+  <SCRipt>
+    let CAR = {
+      Company: 'BMW',
+      Model: 'M2',
+      Price: 15000000,
+      Color: 'Sky-blue',
+      'Item-name': 'BMW M2',//ANOTHER WAY TO DEFINE VARIABLE WITH THE USE OF SINGLE QUOTES
+    };
+    // console.log(CAR.Company);
+    // console.log(CAR.Model);
+    // console.log(CAR.Price);     FIRST WAY TO ACCESSS
+    // CAR.Price = 30000000;
+    // console.log(CAR);
+    // console.log(CAR.Price);
+
+
+    // console.log(CAR['Company']);
+    // console.log(CAR['Model']);   SECOND WAY TO ACCESS
+    // console.log(CAR['Price']);
+
+
+    let propertyName = 'Price';
+    console.log(CAR[propertyName]); // ANOTHER USE OF BRACKET NOTATION
+
+
+    delete CAR.Color;
+    console.log(CAR); //WE CAN ADD AND REMOVE VALUES IN AN OBJECT 
+
+  </SCRipt>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEVEL 6 EXERCISE</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      height: 30px;
+      padding-top: 10px;
+
+    }
+
+    header {
+      background-color: blue;
+      margin-bottom: 20px;
+    }
+
+    #img_container {
+      border: 5px dashed black;
+      margin-top: 50px;
+      margin-left: 28px;
+      height: 350px;
+      width: 1400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      height: 200px;
+      border: 10px solid black;
+    }
+
+    #container1 {
+      height: 150px;
+      width: 1390px;
+      padding: 10px;
+      margin: 20px;
+      margin-bottom: 40PX;
+      margin-top: 40px;
+      border: 7px dashed black;
+      display: flex;
+      flex-direction: row;
+
+    }
+
+    .BOX {
+      height: 100px;
+      width: 100px;
+      border: 5px solid black;
+      margin: 20px;
+      text-align: center;
+    }
+
+    #THAR {
+      background-color: blue;
+      width: 500px;
+      flex-shrink: 0;
+    }
+
+    #RR {
+      background-color: yellow;
+      width: 500px;
+      flex-grow: 1;
+      flex-shrink: 1;
+
+    }
+
+    #MUSTANG {
+      background-color: dodgerblue;
+      width: 500px;
+      flex-shrink: 0;
+    }
+
+    #BMW {
+      height: 70PX;
+      width: 70PX;
+      background-color: green;
+      margin: 100PX;
+      padding-left: 18px;
+      padding-top: 24px;
+      box-sizing: border-box;
+    }
+
+    @media screen and (min-width:300px) and (max-width:400px) {
+      #BMW {
+        background-color: red;
+      }
+    }
+
+    @media screen and (min-width:400px) {
+      #BMW {
+        background-color: blue;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="#"><b>THAR</b></a>
+      <a href="#"><b>ROLLS ROYCE</b></a>
+      <a href="#"><b>BMW</b></a>
+      <a href="#"><b>MUSTAG</b></a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="img_container">
+      <img src="IMAGES/THAR.jpg" alt="THAR IMAGE">
+    </div>
+
+    <div id="container1">
+      <div id="THAR" class="BOX">THAR</div>
+      <div id="RR" class="BOX">ROLLS </div>
+      <div id="MUSTANG" class="BOX">MUSTANG</div>
+    </div>
+    <div id="BMW">BMW</div>
+  </main>
+</body>
+
+</html>

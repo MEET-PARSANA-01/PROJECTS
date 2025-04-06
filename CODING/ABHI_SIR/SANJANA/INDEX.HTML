@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Quiz Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      margin-top: 40px;
+      max-width: 800px;
+    }
+
+    .quiz-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border: 2px solid #39ff14;
+      animation: glow 2s infinite alternate, fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes glow {
+      from {
+        border-color: #39ff14;
+        box-shadow: 0 0 10px #39ff14;
+      }
+
+      to {
+        border-color: #00ffea;
+        box-shadow: 0 0 20px #00ffea;
+      }
+    }
+
+    .quiz-box:hover {
+      transform: translateY(-5px);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn-option {
+      margin-top: 10px;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    .btn-option:hover {
+      transform: scale(1.05);
+    }
+
+    #timer {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .result {
+      display: none;
+      text-align: center;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .topic-select {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center mb-5 fw-bold">QuizMaster - Online Quiz Platform</h1>
+    <div class="quiz-box">
+      <div id="topic-selection">
+        <h3 class="text-center mb-4">Select a Topic to Begin</h3>
+        <div class="topic-select text-center">
+          <select id="topicDropdown" class="form-select mb-3">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+            <option value="c">C Language</option>
+            <option value="dbms">DBMS</option>
+          </select>
+          <button class="btn btn-primary" onclick="startQuiz()">Start Quiz</button>
+        </div>
+      </div>
+
+      <div id="quiz" style="display: none;">
+        <p id="question">Loading question...</p>
+        <div id="options" class="d-grid gap-2"></div>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+          <span id="timer">Time left: 15s</span>
+          <button class="btn btn-warning" onclick="nextQuestion()">Next</button>
+        </div>
+      </div>
+
+      <div id="result" class="result mt-4">
+        <h3>Your Score: <span id="score"></span>/15</h3>
+        <p id="compliment"></p>
+        <button class="btn btn-success mt-3" onclick="restartQuiz()">Restart Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const quizData = {
+      html: [
+        { question: "What does HTML stand for?", options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "Hyper Text Markdown Language"], correct: 0 },
+        { question: "Choose the correct HTML tag for the largest heading:", options: ["<h6>", "<heading>", "<h1>", "<head>"], correct: 2 },
+        { question: "What is the correct HTML element for inserting a line break?", options: ["<break>", "<br>", "<lb>", "<line>"], correct: 1 },
+        { question: "Which HTML attribute specifies an alternate text for an image?", options: ["alt", "src", "title", "longdesc"], correct: 0 },
+        { question: "How can you make a numbered list?", options: ["<ul>", "<ol>", "<list>", "<dl>"], correct: 1 },
+        { question: "How can you make a checkbox in HTML?", options: ["<input type='checkbox'>", "<checkbox>", "<input type='check'>", "<input checkbox>"], correct: 0 },
+        { question: "HTML comments start with:", options: ["//", "/*", "<!--", "#"], correct: 2 },
+        { question: "Which doctype is correct for HTML5?", options: ["<!DOCTYPE HTML PUBLIC>", "<!DOCTYPE HTML> ", "<!HTML5>", "<doctype html5>"], correct: 1 },
+        { question: "Which HTML tag is used to define an internal style sheet?", options: ["<style>", "<css>", "<scrip>", "<link>"], correct: 0 },
+        { question: "How to open a link in a new tab?", options: ["target='_self'", "href='_blank'", "target='_blank'", "new-tab='true'"], correct: 2 },
+        { question: "Which tag creates a table row?", options: ["<td>", "<tr>", "<table>", "<th>"], correct: 1 },
+        { question: "What is the correct HTML tag for inserting an image?", options: ["<image>", "<img>", "<pic>", "<src>"], correct: 1 },
+        { question: "HTML files are saved with what extension?", options: [".htm", ".html", ".xml", ".txt"], correct: 1 },
+        { question: "How can you create an email link in HTML?", options: ["<mail>", "<a href='mailto:example@example.com'>", "<email>", "<a email='example@example.com'>"], correct: 1 },
+        { question: "Which element is used to create a dropdown list?", options: ["<list>", "<select>", "<dropdown>", "<input type='dropdown'>"], correct: 1 }
+      ],
+      css: [...Array(15)].fill().map((_, i) => ({ question: `CSS Question ${i + 1}?`, options: ["Option A", "Option B", "Option C", "Option D"], correct: i % 4 })),
+      javascript: [...Array(15)].fill().map((_, i) => ({ question: `JavaScript Question ${i + 1}?`, options: ["Option A", "Option B", "Option C", "Option D"], correct: i % 4 })),
+      c: [
+        { question: "Who is the father of C language?", options: ["Bjarne Stroustrup", "Dennis Ritchie", "James Gosling", "Guido van Rossum"], correct: 1 },
+        { question: "Which symbol is used to denote a preprocessor directive?", options: ["@", "#", "$", "&"], correct: 1 },
+        { question: "What is the size of int in C (in 32-bit system)?", options: ["2 bytes", "4 bytes", "8 bytes", "1 byte"], correct: 1 },
+        { question: "Which of the following is a valid keyword in C?", options: ["integer", "int", "real", "number"], correct: 1 },
+        { question: "Which loop is guaranteed to execute at least once?", options: ["for", "while", "do-while", "none"], correct: 2 },
+        { question: "Which function is used to print in C?", options: ["cout", "echo", "printf", "print"], correct: 2 },
+        { question: "What is the extension of C files?", options: [".txt", ".doc", ".c", ".exe"], correct: 2 },
+        { question: "Which operator is used to get the value at the address stored in a pointer?", options: ["&", "*", "%", "@"], correct: 1 },
+        { question: "Which of the following is not a storage class in C?", options: ["auto", "static", "volatile", "typedef"], correct: 2 },
+        { question: "What does 'scanf' function do?", options: ["Outputs data", "Scans header files", "Takes input", "Formats strings"], correct: 2 },
+        { question: "C language is which type of language?", options: ["Object Oriented", "Procedural", "Functional", "Scripting"], correct: 1 },
+        { question: "What is used to terminate a statement in C?", options: [".", ",", ":", ";"], correct: 3 },
+        { question: "Which header file is required for printf function?", options: ["conio.h", "stdio.h", "stdlib.h", "math.h"], correct: 1 },
+        { question: "What is the default return type of main()?", options: ["void", "int", "char", "float"], correct: 1 },
+        { question: "Which function is used to allocate memory dynamically?", options: ["malloc()", "alloc()", "new()", "memalloc()"], correct: 0 }
+      ],
+      dbms: [
+        { question: "What does DBMS stand for?", options: ["Database Management System", "Data Bank Management System", "Database Manipulation Software", "Data Business Management System"], correct: 0 },
+        { question: "Which SQL command is used to extract data?", options: ["GET", "SELECT", "EXTRACT", "OPEN"], correct: 1 },
+        { question: "Which of the following is not a type of database?", options: ["Hierarchical", "Relational", "Network", "Decentralized"], correct: 3 },
+        { question: "Which key uniquely identifies a record?", options: ["Foreign Key", "Primary Key", "Candidate Key", "Super Key"], correct: 1 },
+        { question: "Which command is used to remove all records from a table?", options: ["DELETE", "REMOVE", "DROP", "TRUNCATE"], correct: 3 },
+        { question: "Normalization is used to?", options: ["Speed up queries", "Remove redundancy", "Create indexes", "Secure data"], correct: 1 },
+        { question: "Which SQL clause is used to filter records?", options: ["WHERE", "FROM", "HAVING", "GROUP BY"], correct: 0 },
+        { question: "Which of the following is a DDL command?", options: ["INSERT", "SELECT", "CREATE", "UPDATE"], correct: 2 },
+        { question: "What is the use of the JOIN clause?", options: ["Combine rows from two or more tables", "Delete rows", "Create a table", "Select a column"], correct: 0 },
+        { question: "What is a foreign key?", options: ["A key that identifies records", "A key in one table that references the primary key in another", "A unique identifier", "A null key"], correct: 1 },
+        { question: "Which function returns current date in SQL?", options: ["DATE()", "GETDATE()", "NOW()", "SYSDATE()"], correct: 2 },
+        { question: "What is the purpose of INDEX in SQL?", options: ["To join tables", "To delete rows", "To speed up searches", "To format data"], correct: 2 },
+        { question: "What does DML stand for?", options: ["Data Manipulation Language", "Data Migration Language", "Database Markup Language", "Data Method Language"], correct: 0 },
+        { question: "Which SQL statement is used to modify data?", options: ["MODIFY", "CHANGE", "ALTER", "UPDATE"], correct: 3 },
+        { question: "What is a view in SQL?", options: ["Physical table", "Temporary table", "Virtual table", "Backup"], correct: 2 }
+      ]
+    };
+
+    let currentQuestion = 0;
+    let score = 0;
+    let timer;
+    let timeLeft = 15;
+    let selectedTopic = 'html';
+    let selectedData = [];
+
+    function startQuiz() {
+      selectedTopic = document.getElementById('topicDropdown').value;
+      selectedData = quizData[selectedTopic];
+      currentQuestion = 0;
+      score = 0;
+      document.getElementById('topic-selection').style.display = 'none';
+      document.getElementById('quiz').style.display = 'block';
+      loadQuestion();
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timeLeft = 15;
+      document.getElementById('timer').innerText = `Time left: ${timeLeft}s`;
+      timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById('timer').innerText = `Time left: ${timeLeft}s`;
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          nextQuestion();
+        }
+      }, 1000);
+    }
+
+    function loadQuestion() {
+      if (currentQuestion >= selectedData.length) {
+        showResult();
+        return;
+      }
+
+      const q = selectedData[currentQuestion];
+      document.getElementById('question').innerText = q.question;
+      const optionsEl = document.getElementById('options');
+      optionsEl.innerHTML = '';
+
+      q.options.forEach((opt, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-light btn-option';
+        btn.innerText = opt;
+        btn.onclick = () => checkAnswer(index);
+        optionsEl.appendChild(btn);
+      });
+
+      startTimer();
+    }
+
+    function checkAnswer(selected) {
+      clearInterval(timer);
+      if (selected === selectedData[currentQuestion].correct) {
+        score++;
+      }
+      currentQuestion++;
+      setTimeout(loadQuestion, 500);
+    }
+
+    function nextQuestion() {
+      clearInterval(timer);
+      currentQuestion++;
+      loadQuestion();
+    }
+
+    function showResult() {
+      document.getElementById('quiz').style.display = 'none';
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('score').innerText = score;
+
+      let compliment = '';
+      if (score >= 13) compliment = "Outstanding! You're a quiz master! ✨";
+      else if (score >= 10) compliment = "Great job! Keep practicing! 👍";
+      else compliment = "Don't worry, try again and you'll get better! 🙂";
+
+      document.getElementById('compliment').innerText = compliment;
+    }
+
+    function restartQuiz() {
+      score = 0;
+      currentQuestion = 0;
+      document.getElementById('result').style.display = 'none';
+      document.getElementById('quiz').style.display = 'none';
+      document.getElementById('topic-selection').style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>

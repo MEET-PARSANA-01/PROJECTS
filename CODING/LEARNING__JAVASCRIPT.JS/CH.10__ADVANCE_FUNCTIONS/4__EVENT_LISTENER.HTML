@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>EVENT LISTENER IN JS</title>
+</head>
+
+<body>
+  <button id="ITS-BTN">CLICK ME</button>
+
+  <script>
+    let buttonElement = document.querySelector("#ITS-BTN");
+
+    let Behaviour = event => console.log("I AM CLICKED");
+
+    buttonElement.addEventListener("click", Behaviour);
+
+    let PrintDate = event => console.log(new Date());
+    buttonElement.addEventListener('click', PrintDate);
+
+    buttonElement.removeEventListener('click', Behaviour);//IN ORDER TO REMOVE EVENT LISTENER , YOU MUST HAVE THE REFERENCE OF THE FUNCTION.
+  </script>
+
+
+</body>
+
+</html>

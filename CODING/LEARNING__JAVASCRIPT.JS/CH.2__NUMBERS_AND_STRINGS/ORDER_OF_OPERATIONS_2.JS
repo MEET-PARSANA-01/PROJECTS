@@ -1,0 +1,5 @@
+/*
+~~ORDER OF OPERATIONS
+  B O D M A S ,
+  9 / 3 * 2 / 6 LEFT TO RIGHT.
+*/

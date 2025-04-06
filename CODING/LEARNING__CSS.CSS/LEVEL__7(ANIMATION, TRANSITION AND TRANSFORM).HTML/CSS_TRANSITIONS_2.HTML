@@ -1,0 +1,57 @@
+<!--
+B.TRANSITIONS
+   CSS transition is a property that enables smooth animation between changes in CSS property values
+   • transition-property: Defines which CSS properties will transition.
+   • transition-duration: Sets how long the transition lasts.
+   • transition-timing-function: Controls the speed curve of the transition.
+   • transition-delay: Specifies a delay before the transition starts.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEARNING TRANSITIONS</title>
+  <style>
+    .PSEUDO {
+      height: 60px;
+      width: 200px;
+      background-color: greenyellow;
+      margin: 300px;
+      margin-left: 620px;
+      border: 5px dashed black;
+      border-radius: 10px;
+      font-size: 30px;
+
+      transition-property: all;
+      transition-duration: 3s;
+      transition-timing-function: steps(3);
+      transition-delay: 0s;
+      /* SHORTHAND:- transition: all 3s step(3) 0s;*/
+    }
+
+    .PSEUDO:hover {
+      height: 70px;
+      width: 250px;
+      background-color: blue;
+      color: white;
+      border: 5px dashed white;
+      border-radius: 0%;
+    }
+
+    .PSEUDO:active {
+      height: 70px;
+      width: 250px;
+      border-radius: 0%;
+      color: black;
+      background-color: chartreuse;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="PSEUDO"><b>THAR</b></button>
+</body>
+
+</html>

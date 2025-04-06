@@ -1,0 +1,24 @@
+// WRITE A PROGRAM TO FIND NUMBER OF INDICE AT WHICH A PARTICULAR CHARACTER IS PRESENT IN THE GIVEN STRING.
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+  char HERO[30] = "MEET PARSANA";
+
+  char *HEROINE = strchr(HERO, 'N'); // WHY WHOLE FUNCTION IS PUT TO POINTER  ANS. BCOZ IT WILL RETURN THE ADDRESS OF THE CHARACTER FOUND IN THE STRING.
+
+  if (HEROINE)
+  {
+    printf("CHARACTER FOUND AT %ld INDICE", HEROINE - HERO); // WHY HEROINE - HERO  ANS. HEROINE - HERO = 5 - 0.
+  }
+  else
+  {
+    printf("CHARACTER NOT FOUND");
+  }
+
+  return 0;
+}
+
+
+

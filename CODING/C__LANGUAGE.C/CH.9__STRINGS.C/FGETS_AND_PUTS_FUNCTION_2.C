@@ -1,0 +1,39 @@
+/*
+1.fgets():
+  *SAFE INPUT: READS A STRING FROM A FILE OR stdin SAFELY INTO A BUFFER.
+  *LIMITS LENGTH: TAKES THE MAXIMUM SIZE TO READ,PREVENTING BUFFER OVERFLOW.
+  *INCLUDES NEWLINE: CAN INCLUDE THE NEWLINE CHARACTER (\n) IF IT FITS IN THE BUFFER.
+
+
+2.puts():
+  *SIMPLE OUTPUT: WRITES A STRING TO stdout AND APPENDS A NEWLINE AUTOMATICALLY.
+  *NO FORMAT SPECIFIERS: DIRECTLY PRINTS THE STRING WITHOUT FORMATTING OPTIONS.
+
+
+3.gets()(NOT RECOMMENDED):
+  *UNSAFE INPUT: READS A STRING FROM stdin UNTIL A NEWLINE OR EOF WITHOUT SIZE LIMITS.
+  *BUFFER OVEFLOW: PRONE TO OVERFLOW, LEADING TO SECURITY VULNERABILITIES.
+  *DEPRECIATED: REMOVED FROM THE C11 STANDARD DUE TO ITS RISKS.
+*/
+
+#include <stdio.h>
+int main()
+{
+  char M[50];
+  printf("ENTER YOUR NICKNAME: ");
+  fgets(M, sizeof(M), stdin);               // FGETS
+  printf("GOOD MORNING ");
+  puts(M);
+  return 0;
+
+  // char M[50];
+  // printf("ENTER YOUR NAME: ");
+  // gets(M);                                   GETS
+  // printf("GOOD MORNING %s", M);
+
+  // char M[50];
+  // printf("ENTER YOUR NAME: ");
+  // gets(M);                                   PUTS
+  // printf("GOOD MORNING ");
+  // puts(M);
+}

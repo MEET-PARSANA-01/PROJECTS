@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Personal Portfolio Website</title>
+  <link rel="stylesheet" href="YT.CSS">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="logo">Portfolio</a>
+    <nav class="navbar">
+      <a href="#" style="--i:1" class="active">Home</a>
+      <a href="#" style="--i:2">About</a>
+      <a href="#" style="--i:3">Skills</a>
+      <a href="#" style="--i:4">Portfolio</a>
+      <a href="#" style="--i:5">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home">
+    <div class="home-content">
+      <h3>Hello, It's Me</h3>
+      <h1>Meet Parsana</h1>
+      <h3>And I'm a <span id="element"></span> </h3>
+      <p>I'm a web designer with experience for over 3 years </p>
+      <div class="home-sci">
+        <a href="#" style="--i:6"><i class='bx bxl-instagram'></i></a>
+        <a href="#" style="--i:7"><i class='bx bxl-linkedin-square'></i></a>
+      </div>
+      <a href="#" class="btn-box">More About Me</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-img">
+      <img src="PROFILE.jpg" alt="PROFILE PHOTO">
+    </div>
+    <div class="about-text">
+      <h2>About <span>Me</span></h2>
+      <p>I am currently pursuing BSc. IT (FinTech) at Marwadi University, Rajkot, with a strong foundation in C
+        language and HTML. My passion lies in Full-Stack Web Development, AI, Machine Learning, and Deep Learning.
+        My goal is to master web development and gain expertise in AI, ML, video editing, and photo editing.</p>
+      <a href="#" class="btn-box ">More About Me</a>
+    </div>
+  </section>
+
+  <h1 class="sub-title">My <span>Skills</span></h1>
+
+  <section>
+    <div class="container1" id="Skills">
+      <h1 class="heading1">Technical Skills</h1>
+      <div class="Technical-bars">
+        <div class="bar"><i style="color: #c95d2e" class='bx bxl-html5'></i>
+          <div class="info">
+            <span>HTML</span>
+          </div>
+          <div class="progress-line html">
+            <span></span>
+          </div>
+        </div>
+        <div class="bar"><i style="color: #147bbc" class='bx bxl-css3'></i>
+          <div class="info">
+            <span>CSS</span>
+          </div>
+          <div class="progress-line css">
+            <span></span>
+          </div>
+        </div>
+        <div class="bar"><i style="color: #b0bc1e" class='bx bxl-javascript'></i>
+          <div class="info">
+            <span>JavaScript</span>
+          </div>
+          <div class="progress-line js">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container1">
+      <h1 class="heading1">Professional Skills</h1>
+      <div class="radial-bars">
+        <svg x="0px" y="0px" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="80" class="progress-bar"></circle>
+          <circle cx="100" cy="100" r="90" class="path path-1"></circle>
+        </svg>
+        <div class="percentage">90%</div>
+        <div class="text">Creativity</div>
+      </div>
+      <div class="radial-bars">
+        <svg x="0px" y="0px" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="80" class="progress-bar"></circle>
+          <circle cx="100" cy="100" r="90" class="path path-1"></circle>
+        </svg>
+        <div class="percentage">65%</div>
+        <div class="text">Communication</div>
+      </div>
+      <div class="radial-bars">
+        <svg x="0px" y="0px" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="80" class="progress-bar"></circle>
+          <circle cx="100" cy="100" r="90" class="path path-1"></circle>
+        </svg>
+        <div class="percentage">90%</div>
+        <div class="text">Problem Solving</div>
+      </div>
+      <div class="radial-bars">
+        <svg x="0px" y="0px" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="80" class="progress-bar"></circle>
+          <circle cx="100" cy="100" r="90" class="path path-1"></circle>
+        </svg>
+        <div class="percentage">85%</div>
+        <div class="text">Teamwork</div>
+      </div>
+    </div>
+  </section>
+
+  <script src="yt.JS"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    var typed = new Typed('#element', {
+      strings: ["Frontend Developer", "Web Designer", "Web Developer"],
+      typeSpeed: 50,
+      backSpeed: 100,
+      backDelay: 1000,
+      loop: true,
+    });
+  </script>
+</body>
+
+</html>
