@@ -1,1 +1,0 @@
-// Create a program to find the sum of two diagonal elements.

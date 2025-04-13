@@ -1,5 +1,0 @@
-Q1.What do you mean by strings? How are strings declared and initialized?Explain.
-
-Q2.How do character arrays differ from strings?
-
-Q3.Differentiate between scanf() and fgets().

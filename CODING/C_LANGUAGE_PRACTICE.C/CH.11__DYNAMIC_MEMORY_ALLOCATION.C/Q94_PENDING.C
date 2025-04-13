@@ -1,1 +1,0 @@
-// Create a program that dynamically allocates memory for a Car structure and then free it at the end of the program.

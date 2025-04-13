@@ -1,5 +1,0 @@
-/*
-~~ARITHMETIC OPERATORS
-  +,-,*,/,%.
-  MYNTRA CART.
-*/

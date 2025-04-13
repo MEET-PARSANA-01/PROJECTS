@@ -1,1 +1,0 @@
-// Use calloc to allocate an array for a set of char characters representing a sentence, ensuring all the memory is initialized to zero.
